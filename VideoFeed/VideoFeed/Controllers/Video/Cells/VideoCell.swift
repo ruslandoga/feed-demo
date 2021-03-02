@@ -1,39 +1,23 @@
-//
-//  VideoCell.swift
-//  VideoFeed
-//
-//  Created by Doyle Illusion on 9/5/19.
-//  Copyright © 2019 Lixi Technologies. All rights reserved.
-//
-
 import AsyncDisplayKit
 import AVFoundation
 import UIKit
 
-class VideoCell : ASCellNode {
+class VideoCell: ASCellNode {
     
-    var onTapTextField : (() -> Void)? {
-        didSet {
-            actionNode.onTapTextField = onTapTextField
-        }
+    var onTapTextField: (() -> Void)? {
+        didSet { actionNode.onTapTextField = onTapTextField }
     }
     
-    var onTapLikeButton : (() -> Void)? {
-        didSet {
-            actionNode.onTapLikeButton = onTapLikeButton
-        }
+    var onTapLikeButton: (() -> Void)? {
+        didSet { actionNode.onTapLikeButton = onTapLikeButton }
     }
     
     var onTapCommentButton: (() -> Void)? {
-        didSet {
-            actionNode.onTapCommentButton = onTapCommentButton
-        }
+        didSet { actionNode.onTapCommentButton = onTapCommentButton }
     }
     
-    var onTapStarButton : (() -> Void)? {
-        didSet {
-            actionNode.onTapStarButton = onTapStarButton
-        }
+    var onTapStarButton: (() -> Void)? {
+        didSet { actionNode.onTapStarButton = onTapStarButton }
     }
     
     private var review: Review?
@@ -58,10 +42,7 @@ extension VideoCell {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let insets = UIEdgeInsets(top: CGFloat.infinity, left: 0, bottom: 32, right: 0)
         let insetsSpec = ASInsetLayoutSpec(insets: insets, child: infoNode)
-        let overlaySpec = ASOverlayLayoutSpec(child: videoNode, overlay: insetsSpec)
-        let fullStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .spaceBetween, alignItems: .stretch, children: [overlaySpec, actionNode])
-        
-        return fullStack
+        return ASOverlayLayoutSpec(child: videoNode, overlay: insetsSpec)
     }
 }
 

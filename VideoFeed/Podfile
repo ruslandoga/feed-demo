@@ -6,6 +6,6 @@ target 'VideoFeed' do
   use_frameworks!
 
   # Pods for VideoFeed
-pod 'Texture'
-pod 'SPFakeBar'
+  pod 'Texture'
+  pod 'SPFakeBar'
 end

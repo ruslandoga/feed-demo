@@ -25,7 +25,6 @@ class InfoNode : ASDisplayNode {
         let node = ASTextNode()
         node.truncationMode = .byTruncatingTail
         node.maximumNumberOfLines = 1
-        
         return node
     }()
     
@@ -78,9 +77,9 @@ extension InfoNode {
         flexSpec.lineSpacing = 6.0
         
         imageNode.style.preferredSize = CGSize(width: 44, height: 44)
-        let infoSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .start, alignItems: .center, children: [imageNode, nameNode, levelNode])
+        let infoSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 10, justifyContent: .start, alignItems: .center, children: [nameNode])
         
-        let fullStack = ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .end, alignItems: .stretch, children: [infoSpec, titleNode, bodyNode, flexSpec])
+        let fullStack = ASStackLayoutSpec(direction: .vertical, spacing: 8, justifyContent: .end, alignItems: .stretch, children: [infoSpec, titleNode, bodyNode])
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 18, bottom: 10, right: 18), child: fullStack)
     }
